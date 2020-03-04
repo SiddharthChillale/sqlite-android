@@ -33,8 +33,8 @@ public class Greet extends AppCompatActivity {
 
             c.moveToFirst();
             while (c != null) {
-                t1.append("\nName:" + c.getString(activityindex));
-                t1.append("\nAge:" + Integer.toString(c.getInt(buttonindex)));
+                t1.append("\nmsg:" + c.getString(activityindex));
+                t1.append("\nbutton:" + Integer.toString(c.getInt(buttonindex)));
                 c.moveToNext();
             }
         } catch (Exception e) {
