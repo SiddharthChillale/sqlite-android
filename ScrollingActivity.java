@@ -51,7 +51,7 @@ public class ScrollingActivity extends AppCompatActivity {
         greeting2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String s2 ="Logging from button 1";
+                String s2 ="Logging from button 2";
                 logActivity(s2, 2);
             }
         });
@@ -72,12 +72,13 @@ public class ScrollingActivity extends AppCompatActivity {
 
     public void logActivity(String incoming_s, int num){
 //
-        Intent greet_intent = new Intent(this, Greet.class);
-//        greet_intent.putExtra(D1, incoming_s);
-        startActivity(greet_intent);
+
 
         try {
-            sqLiteDatabase.execSQL("INSERT INTO logger (name, age) VALUES('"+incoming_s+"','"+num+"')");
+            Intent greet_intent = new Intent(this, Greet.class);
+//        greet_intent.putExtra(D1, incoming_s);
+            startActivity(greet_intent);
+            sqLiteDatabase.execSQL("INSERT INTO logger (activity_name, button_num) VALUES('"+incoming_s+"','"+num+"')");
             Toast.makeText(this, "Data entered successfully", Toast.LENGTH_SHORT).show();
 
         }
