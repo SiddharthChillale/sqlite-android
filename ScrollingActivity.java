@@ -31,8 +31,21 @@ public class ScrollingActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                try {
+                    Intent delete_intent = new Intent(ScrollingActivity.this, Greet.class);
+//        greet_intent.putExtra(D1, incoming_s);
+                    startActivity(delete_intent );
+                    sqLiteDatabase.execSQL("DELETE FROM logger");
+                    Snackbar.make(view, "Deleted succesfully", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+
+                }
+                catch (Exception e)
+                {
+
+                }
+
             }
         });
 
